@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://n4french.co.uk/sitemap-index.xml

@@ -1,0 +1,48 @@
+---
+import type { Locale } from '../content/translations';
+
+type Props = {
+  locale: Locale;
+  label: string;
+};
+
+const { locale, label } = Astro.props;
+---
+
+<nav class="language-switch" aria-label={label}>
+  <a href="/" lang="en" hreflang="en-GB" aria-current={locale === 'en' ? 'page' : undefined}>EN</a>
+  <span aria-hidden="true">·</span>
+  <a href="/fr" lang="fr" hreflang="fr-FR" aria-current={locale === 'fr' ? 'page' : undefined}>FR</a>
+</nav>
+
+<style>
+  .language-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.68rem;
+    border: 1px solid rgb(23 59 95 / 20%);
+    border-radius: 999px;
+    background: rgb(255 252 245 / 70%);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .language-switch span {
+    color: var(--muted);
+  }
+
+  .language-switch a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .language-switch a[aria-current='page'] {
+    color: var(--red);
+  }
+
+  .language-switch a:hover {
+    color: var(--navy);
+  }
+</style>

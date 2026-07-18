@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/caveat';
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/fraunces';
+import type { SiteContent } from '../content/translations';
+
+type Props = Pick<SiteContent, 'htmlLang' | 'locale' | 'path' | 'seo'>;
+
+const { htmlLang, locale, path, seo } = Astro.props;
+const site = Astro.site ?? new URL('https://n4french.co.uk');
+const canonicalUrl = new URL(path, site);
+const englishUrl = new URL('/', site);
+const frenchUrl = new URL('/fr', site);
+const socialImageUrl = new URL('/social-card-v2.jpg', site);
+const alternateLocale = locale === 'en' ? 'fr_FR' : 'en_GB';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site}#website`,
+      url: site.toString(),
+      name: 'N4 French Community',
+      alternateName: 'Communauté Française N4',
+      inLanguage: ['en-GB', 'fr-FR'],
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${site}#community`,
+      name: 'N4 French Community',
+      alternateName: 'Communauté Française N4',
+      url: site.toString(),
+      description: seo.description,
+      image: socialImageUrl.toString(),
+      areaServed: {
+        '@type': 'Place',
+        name: 'North London N4',
+      },
+      knowsLanguage: ['French', 'English'],
+      sameAs: ['https://chat.whatsapp.com/DjSmPJHzEXy06EWamiZ9sr?s=cl&p=i&ilr=4'],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#173b5f" />
+    <meta name="description" content={seo.description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="icon" href="/logo-mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en-GB" href={englishUrl} />
+    <link rel="alternate" hreflang="fr-FR" href={frenchUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="N4 French Community" />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1732" />
+    <meta property="og:image:height" content="908" />
+    <meta property="og:image:alt" content="N4 French Community in North London" />
+    <meta property="og:locale" content={locale === 'en' ? 'en_GB' : 'fr_FR'} />
+    <meta property="og:locale:alternate" content={alternateLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <title>{seo.title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

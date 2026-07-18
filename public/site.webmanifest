@@ -1,0 +1,16 @@
+{
+  "name": "N4 French Community",
+  "short_name": "N4 French",
+  "description": "The French and French-speaking community in North London N4.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f0df",
+  "theme_color": "#173b5f",
+  "icons": [
+    {
+      "src": "/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
