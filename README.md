@@ -9,7 +9,7 @@ pnpm install
 pnpm dev
 ```
 
-The English page is available at `/` and the French page at `/fr`.
+The English page is available at `/` and the French page at `/fr/`.
 
 ## Production build
 

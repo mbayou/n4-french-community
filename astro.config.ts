@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://n4french.co.uk',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       i18n: {

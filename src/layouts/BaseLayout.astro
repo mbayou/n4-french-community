@@ -11,7 +11,7 @@ const { htmlLang, locale, path, seo } = Astro.props;
 const site = Astro.site ?? new URL('https://n4french.co.uk');
 const canonicalUrl = new URL(path, site);
 const englishUrl = new URL('/', site);
-const frenchUrl = new URL('/fr', site);
+const frenchUrl = new URL('/fr/', site);
 const socialImageUrl = new URL('/social-card-v2.jpg', site);
 const alternateLocale = locale === 'en' ? 'fr_FR' : 'en_GB';
 

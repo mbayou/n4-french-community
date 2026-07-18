@@ -11,8 +11,8 @@ type Activity = {
 export type SiteContent = {
   readonly locale: Locale;
   readonly htmlLang: string;
-  readonly path: '/' | '/fr';
-  readonly alternatePath: '/' | '/fr';
+  readonly path: '/' | '/fr/';
+  readonly alternatePath: '/' | '/fr/';
   readonly seo: {
     readonly title: string;
     readonly description: string;
@@ -74,7 +74,7 @@ const en = {
   locale: 'en',
   htmlLang: 'en-GB',
   path: '/',
-  alternatePath: '/fr',
+  alternatePath: '/fr/',
   seo: {
     title: 'N4 French Community | French-speaking and North London rooted',
     description:
@@ -154,7 +154,7 @@ const en = {
 const fr = {
   locale: 'fr',
   htmlLang: 'fr-FR',
-  path: '/fr',
+  path: '/fr/',
   alternatePath: '/',
   seo: {
     title: 'Communauté Française N4 | Francophones du nord de Londres',
