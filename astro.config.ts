@@ -6,6 +6,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
+      filter: (page) => page !== 'https://n4french.co.uk/join/',
       i18n: {
         defaultLocale: 'en',
         locales: {

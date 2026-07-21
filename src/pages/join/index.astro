@@ -1,0 +1,74 @@
+---
+const whatsappUrl = 'https://chat.whatsapp.com/DjSmPJHzEXy06EWamiZ9sr?s=cl&p=i&ilr=4';
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0; url=${whatsappUrl}`} />
+    <title>Rejoindre la communauté N4 French</title>
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #173b5f;
+        background: #fffaf0;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1.5rem;
+        place-items: center;
+      }
+
+      main {
+        width: min(30rem, 100%);
+        text-align: center;
+      }
+
+      img {
+        width: 5rem;
+        height: 5rem;
+        margin-inline: auto;
+      }
+
+      h1 {
+        margin: 1.25rem 0 0.5rem;
+        font-family: Georgia, serif;
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      p {
+        margin: 0 0 1.5rem;
+        color: #535b5d;
+        line-height: 1.6;
+      }
+
+      a {
+        display: inline-flex;
+        min-height: 3.25rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.75rem;
+        background: #173b5f;
+        box-shadow: 3px 4px 0 #b43d35;
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/logo-mark.svg" width="80" height="80" alt="" />
+      <h1>Ouverture de WhatsApp…</h1>
+      <p>Vous allez rejoindre la communauté française et francophone du N4.</p>
+      <a href={whatsappUrl}>Continuer vers WhatsApp</a>
+    </main>
+  </body>
+</html>
